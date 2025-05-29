@@ -135,7 +135,7 @@ async function setupRealtimeClient(realtimeClient) {
 serve({
   fetch: app.fetch,
   hostname: "0.0.0.0",
-  port: 3000,
+  port: 3500,
 });
 
-console.log(`Server started on :3000`);
+console.log(`Server started on :3500`);
