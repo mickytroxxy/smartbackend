@@ -9,9 +9,9 @@ import { config } from 'dotenv';
 config();
 
 // Get environment variables
-const streamApiKey = process.env.STREAM_API_KEY;
-const streamApiSecret = process.env.STREAM_API_SECRET;
-const openAiApiKey = process.env.OPENAI_API_KEY;
+const streamApiKey = "22wc3jjbnarz";
+const streamApiSecret = "yymyfxkddn3tzxmy396jgpxjzcym5j2kyq8be7dudsts9ekrah3fgmnnq4e36ueu";
+const openAiApiKey = "process.env.OPENAI_API_KEY";
 
 // Check if all required environment variables are set
 if (!streamApiKey || !streamApiSecret || !openAiApiKey) {
@@ -62,7 +62,7 @@ app.post("/:callType/:callId/:openAiApiKey/connect", async (c) => {
   const callType = c.req.param("callType");
   const callId = c.req.param("callId");
   const openAiApiKey = c.req.param("openAiApiKey");
-  
+
   const call = streamClient.video.call(callType, callId);
   const realtimeClient = await streamClient.video.connectOpenAi({
     call,
