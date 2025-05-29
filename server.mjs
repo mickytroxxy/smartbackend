@@ -12,7 +12,7 @@ config();
 const streamApiKey = "22wc3jjbnarz";
 const streamApiSecret = "yymyfxkddn3tzxmy396jgpxjzcym5j2kyq8be7dudsts9ekrah3fgmnnq4e36ueu";
 const openAiApiKey = "process.env.OPENAI_API_KEY";
-
+const PORT = process.env.PORT || 3000;
 // Check if all required environment variables are set
 if (!streamApiKey || !streamApiSecret || !openAiApiKey) {
     console.error("Error: Missing required environment variables, make sure to have a .env file in the project root, check .env.example for reference");
@@ -135,7 +135,7 @@ async function setupRealtimeClient(realtimeClient) {
 serve({
   fetch: app.fetch,
   hostname: "0.0.0.0",
-  port: 3500,
+  port: PORT || '3000',
 });
 
 console.log(`Server started on :3500`);
