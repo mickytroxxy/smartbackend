@@ -57,11 +57,12 @@ app.get("/credentials", async (c) => {
  * sets up the real-time client with event handlers and tools,
  * and returns a success response when complete.
  */
-app.post("/:callType/:callId/connect", async (c) => {
+app.post("/:callType/:callId/:openAiApiKey/connect", async (c) => {
   console.log("got a request for connect");
   const callType = c.req.param("callType");
   const callId = c.req.param("callId");
-
+  const openAiApiKey = c.req.param("openAiApiKey");
+  
   const call = streamClient.video.call(callType, callId);
   const realtimeClient = await streamClient.video.connectOpenAi({
     call,
